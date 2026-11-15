@@ -1,0 +1,291 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#123b43">
+    <meta name="description" content="{% block meta_description %}Find your calm by the coast at Coastal Breeze Hotel.{% endblock %}">
+    <title>{% block title %}Coastal Breeze Hotel{% endblock %}</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #19383b;
+            --muted: #647779;
+            --sea: #123b43;
+            --sea-light: #245962;
+            --sand: #f6f2e9;
+            --paper: #fffefa;
+            --gold: #c59b5b;
+            --line: rgba(25, 56, 59, .14);
+            --content-width: 1180px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 6rem;
+        }
+
+        body {
+            min-width: 320px;
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 4px;
+        }
+
+        .skip-link {
+            position: absolute;
+            z-index: 10;
+            top: 1rem;
+            left: 1rem;
+            padding: .7rem 1rem;
+            transform: translateY(-180%);
+            background: var(--paper);
+            color: var(--sea);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        .site-header {
+            position: relative;
+            z-index: 2;
+            border-bottom: 1px solid var(--line);
+            background: rgba(255, 254, 250, .96);
+        }
+
+        .header-inner {
+            display: flex;
+            width: min(var(--content-width), calc(100% - 3rem));
+            min-height: 88px;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .brand {
+            display: inline-flex;
+            flex-direction: column;
+            color: var(--sea);
+            line-height: 1.15;
+            text-decoration: none;
+        }
+
+        .brand-name {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.45rem;
+            letter-spacing: .015em;
+        }
+
+        .brand-caption {
+            margin-top: .35rem;
+            color: var(--muted);
+            font-size: .64rem;
+            font-weight: 600;
+            letter-spacing: .19em;
+            text-transform: uppercase;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: clamp(1rem, 3vw, 2.4rem);
+        }
+
+        .main-nav a {
+            color: var(--ink);
+            font-size: .9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color .2s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--sea-light);
+        }
+
+        .main-nav .nav-book {
+            padding: .75rem 1.2rem;
+            border: 1px solid var(--sea);
+            color: var(--sea);
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+
+        .main-nav .nav-book:hover {
+            background: var(--sea);
+            color: var(--paper);
+        }
+
+        main {
+            min-height: 60vh;
+        }
+
+        .site-footer {
+            padding: 3.5rem 1.5rem 1.5rem;
+            background: var(--sea);
+            color: #f7f4ec;
+        }
+
+        .footer-inner {
+            display: flex;
+            width: min(var(--content-width), 100%);
+            margin: 0 auto;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            max-width: 330px;
+        }
+
+        .footer-brand .brand {
+            color: #fffefa;
+        }
+
+        .footer-brand p {
+            margin: 1rem 0 0;
+            color: rgba(255, 254, 250, .72);
+            font-size: .92rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.7rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 254, 250, .86);
+            font-size: .9rem;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #fffefa;
+            text-decoration: underline;
+            text-underline-offset: .25em;
+        }
+
+        .footer-bottom {
+            width: min(var(--content-width), 100%);
+            margin: 2.5rem auto 0;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 254, 250, .2);
+            color: rgba(255, 254, 250, .65);
+            font-size: .8rem;
+        }
+
+        @media (max-width: 760px) {
+            .header-inner {
+                width: min(100% - 2rem, var(--content-width));
+                padding: 1rem 0;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .main-nav {
+                width: 100%;
+                flex-wrap: wrap;
+                gap: .75rem 1.25rem;
+            }
+
+            .main-nav .nav-book {
+                padding: .5rem .75rem;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="{% url 'home' %}" aria-label="Coastal Breeze Hotel home">
+                <span class="brand-name">Coastal Breeze</span>
+                <span class="brand-caption">Hotel &amp; Retreat</span>
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="#rooms">Stay</a>
+                <a href="#experiences">Experiences</a>
+                <a href="#about">Our Hotel</a>
+                <a class="nav-book" href="#booking">Book your stay</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        {% if messages %}
+            <div class="messages" role="status" aria-live="polite">
+                {% for message in messages %}
+                    <p class="message {{ message.tags }}">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a class="brand" href="{% url 'home' %}">
+                    <span class="brand-name">Coastal Breeze</span>
+                    <span class="brand-caption">Hotel &amp; Retreat</span>
+                </a>
+                <p>A welcoming coastal escape, made for slower mornings and memorable stays.</p>
+            </div>
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="#rooms">Rooms</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            &copy; {% now "Y" %} Coastal Breeze Hotel. All rights reserved.
+        </div>
+    </footer>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
