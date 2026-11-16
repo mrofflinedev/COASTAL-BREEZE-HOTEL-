@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Coastal Breeze Hotel | Beachfront Escape{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">Luxury Coastal Retreat</span>
+      <h1>Welcome to Coastal Breeze Hotel</h1>
+      <p>Where the ocean meets comfort, warm hospitality, and unforgettable seaside memories.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/rooms/">Book Your Stay</a>
+        <a class="btn btn-secondary" href="#about">Explore More</a>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <div class="booking-box">
+        <div class="logo-box" style="display:flex; align-items:center; justify-content:center; margin-bottom:0.4rem;">
+          <img src="{% static 'images/logo.jpg' %}" alt="Coastal Breeze Hotel logo" style="width:120px; height:120px; object-fit:cover; border-radius:50%; border:3px solid rgba(255,255,255,0.4); background:#fff;">
+        </div>
+        <div>
+          <label>Check-In</label>
+          <input type="date" value="2026-11-16">
+        </div>
+        <div>
+          <label>Check-Out</label>
+          <input type="date" value="2026-11-18">
+        </div>
+        <div>
+          <label>Guests</label>
+          <select>
+            <option>2 Guests</option>
+            <option>3 Guests</option>
+            <option>4 Guests</option>
+            <option>5 Guests</option>
+            <option>8 Guests</option>
+            <option>10 or more Guests</option>
+          </select>
+        </div>
+        <a class="btn btn-primary" href="/rooms/">Check Availability</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="showcase" id="about">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Why Choose Us</span>
+      <h2>Your seaside escape starts here</h2>
+      <p>From beachfront views to comforting rooms and delicious dining, everything is designed to help you relax and enjoy the coast.</p>
+    </div>
+
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="feature-icon">🏖️</div>
+        <h3>Beachfront Location</h3>
+        <p>Just steps from the white sandy beaches and the soothing sound of the ocean.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">🛏️</div>
+        <h3>Comfortable Rooms</h3>
+        <p>Spacious, clean, air-conditioned rooms with a calm atmosphere and beautiful views.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">🍽️</div>
+        <h3>Quality Dining</h3>
+        <p>Enjoy local and international dishes prepared with care for every guest.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="rooms">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Featured Stays</span>
+      <h2>Rooms designed for comfort</h2>
+    </div>
+
+    <div class="rooms-grid">
+      <article class="room-card">
+        <div class="room-image"></div>
+        <div class="room-body">
+          <div class="room-meta">
+            <h3>Ocean View Room</h3>
+            <span class="room-tag">Popular</span>
+          </div>
+          <p>Wake up to fresh sea air and a relaxing view from your private window.</p>
+          <div class="room-meta">
+            <span class="room-price">$120 <small>/ night</small></span>
+            <a class="btn btn-primary" href="/rooms/">Book</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="room-card">
+        <div class="room-image"></div>
+        <div class="room-body">
+          <div class="room-meta">
+            <h3>Garden Suite</h3>
+            <span class="room-tag">Luxury</span>
+          </div>
+          <p>Relax in a quiet suite with elegant interiors and a welcoming coastal atmosphere.</p>
+          <div class="room-meta">
+            <span class="room-price">$180 <small>/ night</small></span>
+            <a class="btn btn-primary" href="/rooms/">Book</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="room-card">
+        <div class="room-image"></div>
+        <div class="room-body">
+          <div class="room-meta">
+            <h3>Private Villa</h3>
+            <span class="room-tag">Premium</span>
+          </div>
+          <p>Enjoy extra space, privacy, and a calming retreat for your peaceful getaway.</p>
+          <div class="room-meta">
+            <span class="room-price">$260 <small>/ night</small></span>
+            <a class="btn btn-primary" href="/rooms/">Book</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="eyebrow">Plan Your Visit</span>
+      <h2>We’re ready to welcome you</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="info-card">
+        <h3>Hotel Information</h3>
+        <div class="info-list">
+          <div class="info-item">
+            <div class="icon">📍</div>
+            <div>
+              <strong>Location</strong>
+              <p>Coastal Road, Beachfront District</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="icon">📞</div>
+            <div>
+              <strong>Call Us</strong>
+              <p>+234 800 000 0000</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="icon">✉️</div>
+            <div>
+              <strong>Email</strong>
+              <p>hello@coastalbreezehotel.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h3>Send a Message</h3>
+        <form class="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Your name">
+            </div>
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="Your email">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell us how we can help..."></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
